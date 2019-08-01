@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS codegig_db;
+CREATE DATABASE codegig_db;
+
 USE codegig_db;
 
 CREATE TABLE `gigs` (
@@ -6,9 +9,9 @@ CREATE TABLE `gigs` (
 `technologies` VARCHAR(200) NOT NULL, 
 `budget` INT default 0, 
 `description` VARCHAR(500) NULL,
-`contact email` VARCHAR(50) NULL,
-`updated_at` TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
-`created_at` TIMESTAMP NOT NULL,
+`contact_email` VARCHAR(50) NULL,
+`updatedAt` TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
+`createdAt` DATETIME DEFAULT CURRENT_TIMESTAMP,
 
 PRIMARY KEY ( `id` ) 
 );
