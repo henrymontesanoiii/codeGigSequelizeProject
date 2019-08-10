@@ -14,6 +14,19 @@ db.authenticate()
 
 const app = express();
 
+//handlebars middleware
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
+//Set static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+//Index Route
+app.get('/', function (req, res){
+  res.render('index', {layout: 'landing'})
+});
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
